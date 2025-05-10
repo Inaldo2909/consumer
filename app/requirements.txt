@@ -1,0 +1,9 @@
+fastapi
+kafka
+kafka-python
+pydantic
+paramiko
+six
+aiokafka
+uvicorn[standard]
+websockets

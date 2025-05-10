@@ -1,0 +1,20 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imagem Kafka</title>
+</head>
+<body>
+<h1>Imagem Recebida</h1>
+<img id="image" src="" style="max-width: 100%; height: auto;" />
+<script>
+    const socket = new WebSocket("ws://localhost:8000/ws/frames");
+    socket.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+        if (data.image_base64) {
+            document.getElementById("image").src = "data:image/jpeg;base64," + data.image_base64;
+        }
+    };
+</script>
+</body>
+</html>
